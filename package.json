@@ -1,0 +1,29 @@
+{
+  "name": "spotify-player",
+  "version": "0.0.1",
+  "description": "Small player project for an assingment on a TDD course",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "test:tdd": "jest --watch"
+  },
+  "author": "Andre L. Adriano",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.11.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^1.2.1",
+    "jest": "^23.6.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "eslint . && jest"
+    }
+  }
+}
