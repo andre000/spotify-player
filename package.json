@@ -4,22 +4,32 @@
   "description": "Small player project for an assingment on a TDD course",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
+    "watch": "webpack-dev-server --hot --open-page ./index.html",
     "test": "jest --coverage",
     "test:tdd": "jest --watch"
   },
   "author": "Andre L. Adriano",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "ramda": "^0.26.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
     "eslint": "^5.11.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.2.1",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
   },
   "husky": {
     "hooks": {
