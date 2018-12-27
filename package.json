@@ -16,6 +16,7 @@
     "@mdi/js": "^3.2.89",
     "axios": "^0.18.0",
     "bulma": "^0.7.2",
+    "dotenv": "^6.2.0",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
