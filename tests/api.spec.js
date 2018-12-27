@@ -82,5 +82,17 @@ describe('Spotify API Wrapper', () => {
 
       spy.mockRestore();
     });
+
+    it('should return a promise with the correct parameters when `withTracks` option is true', async () => {
+      const sfy = new SpotifyWrapper({ token: 'foo' });
+      const spy = jest.spyOn(sfy.instance, 'get')
+        .mockImplementation(() => new Promise(resolve => resolve({ data: { foo: 'bar' } })));
+      const result = await sfy.getAlbumDetail('0sNOF9WDwhWunNAHPD3Baj', true);
+
+      expect(result).toEqual({ foo: 'bar' });
+      expect(spy).toHaveBeenCalledWith('albums/0sNOF9WDwhWunNAHPD3Baj/tracks');
+
+      spy.mockRestore();
+    });
   });
 });
