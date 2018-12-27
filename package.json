@@ -43,7 +43,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "eslint . && jest"
+      "pre-push": "eslint . && jest --coverage"
     }
   }
 }
