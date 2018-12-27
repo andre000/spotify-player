@@ -1,0 +1,33 @@
+body {
+  display: grid;
+  grid-template-columns:  0fr 1fr;
+  grid-template-areas: "sidebar content";
+
+  aside {
+    min-height: 100vh;
+    grid-area: sidebar;
+    min-width: 275px;
+  }
+
+  main {
+    min-height: 100vh;
+    grid-area: content;
+  }
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .title {
+    color: white !important;
+    display: inline;
+    margin-left: 15px;
+    font-size: 1.5rem;
+  }
+
+  svg {
+    fill: white;
+  }
+}

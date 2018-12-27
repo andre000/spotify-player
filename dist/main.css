@@ -6747,3 +6747,27 @@ label.panel-block {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
+body {
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+  grid-template-areas: "sidebar content"; }
+  body aside {
+    min-height: 100vh;
+    grid-area: sidebar;
+    min-width: 275px; }
+  body main {
+    min-height: 100vh;
+    grid-area: content; }
+
+#logo {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #logo .title {
+    color: white !important;
+    display: inline;
+    margin-left: 15px;
+    font-size: 1.5rem; }
+  #logo svg {
+    fill: white; }
+
