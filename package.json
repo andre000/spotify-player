@@ -1,29 +1,49 @@
 {
   "name": "spotify-player",
-  "version": "0.0.1",
+  "version": "0.3.3",
   "description": "Small player project for an assingment on a TDD course",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
+    "watch": "webpack-dev-server --hot --open-page ./index.html",
     "test": "jest --coverage",
     "test:tdd": "jest --watch"
   },
   "author": "Andre L. Adriano",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0"
+    "@mdi/font": "^3.2.89",
+    "@mdi/js": "^3.2.89",
+    "axios": "^0.18.0",
+    "bulma": "^0.7.2",
+    "dotenv": "^6.2.0",
+    "ramda": "^0.26.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^2.1.0",
     "eslint": "^5.11.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.2.1",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
   },
   "husky": {
     "hooks": {
-      "pre-push": "eslint . && jest"
+      "pre-push": "eslint . && jest --coverage"
     }
   }
 }

@@ -1,0 +1,19 @@
+body {
+  display: grid;
+  grid-template-columns:  0fr 1fr;
+  grid-template-areas: "sidebar content";
+
+  aside {
+    min-height: 100vh;
+    grid-area: sidebar;
+    min-width: 300px;
+    justify-content: end !important;
+  }
+
+  main {
+    min-height: 100vh;
+    grid-area: content;
+  }
+}
+
+@import '../components/aside/style.scss';
