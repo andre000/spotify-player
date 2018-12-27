@@ -6,7 +6,8 @@ body {
   aside {
     min-height: 100vh;
     grid-area: sidebar;
-    min-width: 275px;
+    min-width: 300px;
+    justify-content: end !important;
   }
 
   main {
@@ -15,19 +16,4 @@ body {
   }
 }
 
-#logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  .title {
-    color: white !important;
-    display: inline;
-    margin-left: 15px;
-    font-size: 1.5rem;
-  }
-
-  svg {
-    fill: white;
-  }
-}
+@import '../components/aside/style.scss';
