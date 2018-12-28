@@ -8,7 +8,9 @@ It uses Webpack, Babel, SCSS, Jest and Bulma as main dependences.
 
 --- 
 
-Berore running this project, copy the file `config.example.js`, rename it `config.js` and fill the fields with your data.
+## Configurations
+
+Before running this project, copy the file `config.example.js`, rename it `config.js` and fill the fields with your data.
 
 ---
 
