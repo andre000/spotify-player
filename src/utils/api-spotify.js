@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-require('dotenv').config();
+import env from './config';
 
 class SpotifyWrapper {
   constructor({ token }) {
@@ -10,7 +9,7 @@ class SpotifyWrapper {
 
   createInstance() {
     this.instance = axios.create({
-      baseURL: process.env.SPOTIFY_ENDPOINT,
+      baseURL: env.SPOTIFY_ENDPOINT,
       headers: {
         Authorization: `Bearer ${this.token}`,
       },
@@ -35,9 +34,9 @@ class SpotifyWrapper {
     return result;
   }
 
-  static async generateToken() {
-    const token = await new Promise(resolve => setTimeout(() => { resolve('foo'); }, 100));
-    return token;
+  static generateToken() {
+    const authURL = `${env.SPOTIFY_AUTH_REQUEST}?client_id=${env.SPOTIFY_CLIENT_ID}&redirect_uri=${env.APP_TOKEN_REDIRECT}&response_type=token`;
+    return authURL;
   }
 }
 

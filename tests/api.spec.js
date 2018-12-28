@@ -35,7 +35,7 @@ describe('Spotify API Wrapper', () => {
     const sfy = new SpotifyWrapper({ token: 'foo' });
     expect(sfy.instance).toBeTruthy();
     expect(spy).toHaveBeenCalledWith({
-      baseURL: 'https://api.spotify.com/v1/search',
+      baseURL: 'https://api.spotify.com/v1/',
       headers: { Authorization: 'Bearer foo' },
     });
     spy.mockRestore();
