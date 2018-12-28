@@ -1,6 +1,6 @@
 {
   "name": "spotify-player",
-  "version": "0.3.3",
+  "version": "0.5.1",
   "description": "Small player project for an assingment on a TDD course",
   "main": "index.js",
   "scripts": {
