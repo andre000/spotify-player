@@ -25,7 +25,7 @@ export default {
     }
 
     const now = new Date();
-    if (now >= window.localStorage.getItem('expire_date')) {
+    if (now >= new Date(window.localStorage.getItem('expire_date'))) {
       window.localStorage.clear();
       this.start();
     }

@@ -1,10 +1,14 @@
 /* global document */
 import { mdiSpotify, mdiMagnify } from '@mdi/js';
+import list from './list';
+import search from './search';
 
 export default {
   build() {
     this.createLogo();
     this.createSearchIcon();
+    list.build();
+    search.build();
   },
 
   createLogo() {
