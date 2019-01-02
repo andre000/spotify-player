@@ -16,7 +16,7 @@ export default {
       const tokenDate = new Date();
       tokenDate.setSeconds(tokenDate.getSeconds() + parseInt(params.get('expires_in'), 10));
       window.localStorage.setItem('expire_date', tokenDate);
-      return window.location.replace('/');
+      window.location.replace('/');
     }
 
     const token = window.localStorage.getItem('token');
