@@ -1,5 +1,6 @@
 /* global document, window */
 /* istanbul ignore file */
+import { mdiAlbum } from '@mdi/js';
 
 export default {
   build() {
@@ -12,7 +13,7 @@ export default {
     this.nextPage = albums.next;
     const list = [...albums.items]
       .map(d => ({
-        image: d.images[0] ? d.images[0].url : '',
+        image: d.images[0] ? d.images[0].url : mdiAlbum,
         album: d.name,
         artist: d.artists[0].name,
       }));
@@ -50,7 +51,8 @@ export default {
   template: ({
     image, album, artist,
   }) => `<div title='${album}' class='list-item'>
-      <img src='${image}' alt='${album}' class='list-image'/>
+      ${image.match('http') ? `<img src='${image}' alt='${album}' class='list-image'/>`
+    : `<svg viewBox="0 0 24 24" class='list-image'> <path d="${image}"></path> </svg>`}
       <div class='list-description'>
         <p class='list-title'>${album}</p>
         <p class='list-subtitle'>${artist}</p>
