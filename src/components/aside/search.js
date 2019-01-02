@@ -11,10 +11,11 @@ export default {
   },
 
   async searchValue() /* istanbul ignore next */ {
-    const result = await window.spotify.search(this.search.value, 'album');
+    this.result = await window.spotify.search(this.search.value, 'album');
     const list = document.querySelector('.result-list');
 
-    window.searchEvent = new CustomEvent('search-results', { detail: result });
+    window.searchEvent = new CustomEvent('search-results', { detail: this.result });
     list.dispatchEvent(window.searchEvent);
   },
+
 };

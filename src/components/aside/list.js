@@ -1,14 +1,15 @@
-/* global document */
+/* global document, window */
+/* istanbul ignore file */
+
 export default {
-  build() /* istanbul ignore next */ {
+  build() {
     this.list = document.querySelector('.result-list');
-    this.list.addEventListener('search-results', (e) => {
-      const { detail } = e;
-      this.generateList(detail);
-    });
+    this.listenSearchResults();
+    this.eventEndOfScroll();
   },
 
-  generateList({ albums }) /* istanbul ignore next */ {
+  generateList({ albums }, append = false) {
+    this.nextPage = albums.next;
     const list = [...albums.items]
       .map(d => ({
         image: d.images[0] ? d.images[0].url : '',
@@ -17,12 +18,38 @@ export default {
       }));
 
     const html = list.reduce((t, d) => (t + this.template(d)), '');
-    document.querySelector('.result-list').innerHTML = html;
+    if (append) {
+      document.querySelector('.result-list').insertAdjacentHTML('beforeend', html);
+    } else {
+      document.querySelector('.result-list').innerHTML = html;
+    }
   },
 
-  template: /* istanbul ignore next */ ({
+  listenSearchResults() {
+    this.list.addEventListener('search-results', (e) => {
+      const { detail } = e;
+      this.generateList(detail);
+    });
+  },
+
+  eventEndOfScroll() {
+    this.list.addEventListener('scroll', async () => {
+      const endOfScroll = (this.list.offsetHeight + this.list.scrollTop >= this.list.scrollHeight);
+      if (endOfScroll && this.nextPage) {
+        const url = new URL(this.nextPage);
+        const offset = url.searchParams.get('offset');
+        const limit = url.searchParams.get('limit');
+        const query = url.searchParams.get('query');
+
+        const detail = await window.spotify.search(query, 'album', offset, limit);
+        this.generateList(detail, true);
+      }
+    });
+  },
+
+  template: ({
     image, album, artist,
-  }) => `<div class='list-item'>
+  }) => `<div title='${album}' class='list-item'>
       <img src='${image}' alt='${album}' class='list-image'/>
       <div class='list-description'>
         <p class='list-title'>${album}</p>
