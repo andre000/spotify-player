@@ -6884,6 +6884,7 @@ aside.section .result-list {
   padding: 20px; }
   .track-container:empty {
     text-align: center;
+    margin: 12px 10px 19px;
     justify-content: center; }
     .track-container:empty::before {
       content: 'Select an Album and the tracks will be shown here';
