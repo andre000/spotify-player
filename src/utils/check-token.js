@@ -1,5 +1,6 @@
 /* global window */
 import SpotifyWrapper from './api-spotify';
+import env from './config';
 
 export default {
   start() {
@@ -16,7 +17,7 @@ export default {
       const tokenDate = new Date();
       tokenDate.setSeconds(tokenDate.getSeconds() + parseInt(params.get('expires_in'), 10));
       window.localStorage.setItem('expire_date', tokenDate);
-      window.location.replace('/');
+      window.location.replace(env.APP_TOKEN_REDIRECT);
     }
 
     const token = window.localStorage.getItem('token');
