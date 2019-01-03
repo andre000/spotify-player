@@ -6757,11 +6757,30 @@ body {
     min-width: 300px;
     justify-content: end !important; }
   body main {
-    min-height: 100vh;
+    overflow-y: auto;
+    max-height: 100vh;
     grid-area: content; }
 
 .section.hero {
   padding-bottom: 0px; }
+
+@media screen and (max-width: 768px) {
+  aside.section {
+    width: 100vw;
+    transition: 0.25s all cubic-bezier(0.075, 0.82, 0.165, 1); }
+    aside.section.closed {
+      width: 40px !important;
+      min-width: 0px; }
+      aside.section.closed #logo svg {
+        width: 30px;
+        height: 30px;
+        position: absolute; }
+      aside.section.closed #logo .title {
+        display: none; }
+      aside.section.closed .div-search {
+        display: none; }
+      aside.section.closed .result-list {
+        display: none; } }
 
 aside.section .result-list {
   height: calc(100vh - 184px);
@@ -6849,6 +6868,14 @@ aside.section .result-list {
     .list-item:hover .list-image {
       border-radius: 0%; }
 
+@media screen and (max-width: 768px) {
+  main.section.closed {
+    display: none; } }
+
+@media screen and (max-width: 1024px) {
+  .album-container {
+    width: 100% !important; } }
+
 .album-info {
   text-align: center; }
   .album-info .album-title {
@@ -6859,9 +6886,12 @@ aside.section .result-list {
     margin-bottom: 15px; }
   .album-info svg.album-image {
     fill: #ccc4; }
-  .album-info .album-info {
-    text-align: center;
-    color: #777; }
+    @media screen and (max-width: 1024px) {
+      .album-info svg.album-image {
+        height: 50vh; } }
+  @media screen and (max-width: 1024px) {
+    .album-info .album-image {
+      height: 50vh; } }
   .album-info .album-counter {
     margin-top: 5px;
     margin-left: 5px;
@@ -6896,15 +6926,29 @@ aside.section .result-list {
     color: #777;
     transition: .25s all ease-out;
     cursor: pointer; }
+    @media screen and (min-width: 1216px) {
+      .track-container .music {
+        align-items: center; } }
+    @media screen and (max-width: 1024px) {
+      .track-container .music {
+        flex-direction: column; } }
     .track-container .music .music-number {
       flex-grow: 1;
       font-weight: bold; }
     .track-container .music .music-title {
       flex-grow: 50; }
+    .track-container .music .music-duration {
+      font-size: 12px; }
     .track-container .music:hover {
       background: #f5f5f5;
       color: #222; }
     .track-container .music.playing {
       background-color: #00d1b2 !important;
-      color: #fff; }
+      color: #fff;
+      box-shadow: 1px 2px 6px #3333;
+      border-radius: 2px; }
+    .track-container .music.disabled {
+      background: #ddd3;
+      color: #aaa;
+      cursor: not-allowed; }
 

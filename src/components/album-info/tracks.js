@@ -27,6 +27,9 @@ export default {
 
     tracks.forEach((t) => {
       t.addEventListener('click', () => {
+        if (t.classList.contains('disabled')) {
+          return false;
+        }
         const audio = t.children[3];
 
         /* istanbul ignore next */
@@ -60,17 +63,19 @@ export default {
         } else {
           this.playing.pause();
         }
+
+        return true;
       });
     });
   },
 
   template: ({
     id, number, title, duration, preview,
-  }) => `<div class='music' data-id='${id}'>
+  }) => `<div class='music ${preview ? '' : 'disabled'}' data-id='${id}'>
        <p class="music-number">${number}</p>
        <p class="music-title">${title}</p>
        <p class="music-duration">${duration}</p>
-       <audio src='${preview}'></audio>
+       ${preview ? `<audio src='${preview}'></audio>` : ''}
      </div>`,
 
   formatMiliseconds(ms) /* istanbul ignore next */ {

@@ -1,3 +1,9 @@
+$mobile: 768px;
+$tablet: 769px;
+$desktop: 1024px;
+$widescreen: 1216px;
+$fullhd: 1408px;
+
 body {
   display: grid;
   grid-template-columns:  0fr 1fr;
@@ -11,7 +17,8 @@ body {
   }
 
   main {
-    min-height: 100vh;
+    overflow-y: auto;
+    max-height: 100vh;
     grid-area: content;
   }
 }

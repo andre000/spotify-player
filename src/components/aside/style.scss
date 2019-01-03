@@ -2,7 +2,37 @@
   padding-bottom: 0px;
 }
 
+
 aside.section {
+  @media screen and (max-width: $mobile) {
+    width: 100vw;
+    transition: .25s all cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &.closed {
+      width: 40px !important;
+      min-width: 0px;
+
+      #logo {
+        svg {
+          width: 30px;
+          height: 30px;
+          position: absolute;
+        }
+        .title {
+          display: none;
+        }
+      }
+
+      .div-search {
+        display: none;
+      }
+
+      .result-list {
+        display: none;
+      }
+    }
+  }
+
   .result-list {
     height: calc(100vh - 184px);
     overflow-y: auto;
@@ -43,7 +73,6 @@ aside.section {
   display: flex;
   justify-content: center;
   align-items: center;
-  
   .title {
     color: white !important;
     display: inline;
