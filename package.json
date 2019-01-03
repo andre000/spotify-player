@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -p --env.NODE_ENV=production",
-    "watch": "webpack-dev-server --hot --open-page ./index.html",
+    "watch": "webpack-dev-server --env.NODE_ENV=local --hot --open-page ./index.html",
     "test": "jest --coverage",
     "test:tdd": "jest --watch"
   },
