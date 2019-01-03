@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const prod = {
   APP_TOKEN_REDIRECT: 'http://your-server-link',
   SPOTIFY_AUTH_REQUEST: 'https://accounts.spotify.com/authorize',
