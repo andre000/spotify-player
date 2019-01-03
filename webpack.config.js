@@ -2,7 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = {
+module.exports = env => ({
   entry: './src/index.js',
   output: {
     filename: 'main.js',
@@ -46,6 +46,8 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: env.NODE_ENV,
+    }),
   ],
-};
+});
