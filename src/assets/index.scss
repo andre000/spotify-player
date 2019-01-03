@@ -4,6 +4,10 @@ $desktop: 1024px;
 $widescreen: 1216px;
 $fullhd: 1408px;
 
+html {
+  overflow-y: hidden;
+}
+
 body {
   display: grid;
   grid-template-columns:  0fr 1fr;
