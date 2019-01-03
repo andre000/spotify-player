@@ -47,7 +47,7 @@ const mkTracks = {
       id: '0gXeWUxgRWmnpFCcIsi3Bh',
       is_local: false,
       name: 'Acoustic Installation',
-      preview_url: 'https://p.scdn.co/mp3-preview/747794eb96a281348f24eb6e1586738416979540?cid=f0478b4323fd4137ba6d59e89123c210',
+      preview_url: null,
       track_number: 3,
       duration_ms: 4000,
     },
@@ -120,5 +120,11 @@ describe('Album Tracks Builder', () => {
     music.click();
     mkAlbumTracks.playing.onpause();
     expect(music.classList.contains('playing')).toBeFalsy();
+  });
+  it('should not execute when track doesn\'t have audio', async () => {
+    await mkAlbumTracks.build(mkTracks.id);
+    const music = document.querySelector('.music:last-child');
+    music.click();
+    expect(music.children[3]).toBeFalsy();
   });
 });

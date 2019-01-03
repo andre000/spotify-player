@@ -1,11 +1,12 @@
 {
   "name": "spotify-player",
-  "version": "0.7.5",
+  "version": "1.0.0",
   "description": "Small player project for an assingment on a TDD course",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack-dev-server --hot --open-page ./index.html",
+    "lint": "eslint . --fix",
+    "build": "webpack -p --env.NODE_ENV=production",
+    "watch": "webpack-dev-server --env.NODE_ENV=local --hot --open-page ./index.html",
     "test": "jest --coverage",
     "test:tdd": "jest --watch"
   },

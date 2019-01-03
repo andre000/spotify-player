@@ -45,6 +45,10 @@ export default {
   eventAlbumClick(el, album) {
     el.addEventListener('click', () => {
       albumInfo.build(album);
+      const aside = document.querySelector('aside.section');
+      const main = document.querySelector('main.section');
+      aside.classList.add('closed');
+      main.classList.remove('closed');
     });
   },
 

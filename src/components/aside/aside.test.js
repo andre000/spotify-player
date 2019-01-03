@@ -41,4 +41,12 @@ describe('Aside Component', () => {
     expect(document.querySelectorAll('svg').length).toBe(1);
     expect(document.querySelector('svg').innerHTML).toMatch(/path/);
   });
+
+  it('should remove the closed classes when clicking on the component', () => {
+    document.body.innerHTML = '<aside class="section hero is-primary is-bold closed"></aside><main class="section"></div>';
+    aside.eventReopen();
+    const asideDOM = document.querySelector('aside.section');
+    asideDOM.click();
+    expect(asideDOM.classList.contains('closed')).toBeFalsy();
+  });
 });

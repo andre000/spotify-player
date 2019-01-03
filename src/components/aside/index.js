@@ -7,6 +7,7 @@ export default {
   build() {
     this.createLogo();
     this.createSearchIcon();
+    this.eventReopen();
     list.build();
     search.build();
   },
@@ -15,6 +16,16 @@ export default {
     const logo = document.getElementById('logo');
     const image = `<svg viewBox="0 0 24 24" style="width: 2.5rem"> <path d="${mdiSpotify}"></path> </svg>`;
     logo.insertAdjacentHTML('afterbegin', image);
+  },
+
+  eventReopen() {
+    document.body.addEventListener('click', (e) => {
+      if (e.target.classList.contains('closed')) {
+        e.target.classList.remove('closed');
+        const main = document.querySelector('main.section');
+        main.classList.add('closed');
+      }
+    });
   },
 
   createSearchIcon() {

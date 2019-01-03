@@ -1,3 +1,17 @@
+main.section {
+  &.closed {
+    @media screen and (max-width: $mobile) {
+      display: none;
+    }
+  }
+}
+
+.album-container {
+  @media screen and (max-width: $desktop) {
+    width: 100% !important;
+  }
+}
+
 .album-info {
   text-align: center;
   
@@ -11,13 +25,17 @@
 
   svg.album-image {
     fill: #ccc4;
-  }
-  
-  .album-info {
-    text-align: center;
-    color: #777;
+    @media screen and (max-width: $desktop) {
+      height: 50vh;
+    }
   }
 
+  .album-image {
+    @media screen and (max-width: $desktop) {
+      height: 50vh;
+    }
+  }
+  
   .album-counter {
     margin-top: 5px;
     margin-left: 5px;
@@ -60,12 +78,22 @@
     transition: .25s all ease-out;
     cursor: pointer;
 
+    @media screen and (min-width: $widescreen) {
+      align-items: center;
+    }
+
+    @media screen and (max-width: $desktop) {
+      flex-direction: column;
+    }
     .music-number {
       flex-grow: 1;
       font-weight: bold;
     }    
     .music-title {
       flex-grow: 50;
+    }
+    .music-duration {
+      font-size: 12px;
     }
     &:hover {
       background: #f5f5f5;
@@ -74,6 +102,13 @@
     &.playing {
       background-color: #00d1b2 !important;
       color: #fff;
+      box-shadow: 1px 2px 6px #3333;
+      border-radius: 2px;
+    }
+    &.disabled {
+      background: #ddd3;
+      color: #aaa;
+      cursor: not-allowed;
     }
   }
 }
