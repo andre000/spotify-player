@@ -1,6 +1,7 @@
 /* global document, window */
 /* istanbul ignore file */
 import { mdiAlbum } from '@mdi/js';
+import albumInfo from '../album-info';
 
 export default {
   build() {
@@ -11,6 +12,8 @@ export default {
 
   generateList({ albums }, append = false) {
     this.nextPage = albums.next;
+    this.albums = albums.items;
+
     const list = [...albums.items]
       .map(d => ({
         image: d.images[0] ? d.images[0].url : mdiAlbum,
@@ -24,12 +27,24 @@ export default {
     } else {
       document.querySelector('.result-list').innerHTML = html;
     }
+
+    const listEl = document.querySelectorAll('.list-item:not(.loaded)');
+    this.albums.forEach((v, k) => {
+      this.eventAlbumClick(listEl[k], v);
+      listEl[k].classList.add('loaded');
+    });
   },
 
   listenSearchResults() {
     this.list.addEventListener('search-results', (e) => {
       const { detail } = e;
       this.generateList(detail);
+    });
+  },
+
+  eventAlbumClick(el, album) {
+    el.addEventListener('click', () => {
+      albumInfo.build(album);
     });
   },
 
