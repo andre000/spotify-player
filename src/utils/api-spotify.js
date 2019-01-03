@@ -16,11 +16,13 @@ class SpotifyWrapper {
     });
   }
 
-  async search(query, type) {
+  async search(query, type, offset = 0, limit = 20) {
     const { data: result } = await this.instance.get('search', {
       params: {
         q: query,
         type,
+        offset,
+        limit,
       },
     });
 

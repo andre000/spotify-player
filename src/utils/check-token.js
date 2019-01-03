@@ -16,6 +16,7 @@ export default {
       const tokenDate = new Date();
       tokenDate.setSeconds(tokenDate.getSeconds() + parseInt(params.get('expires_in'), 10));
       window.localStorage.setItem('expire_date', tokenDate);
+      window.location.replace('/');
     }
 
     const token = window.localStorage.getItem('token');
@@ -25,7 +26,7 @@ export default {
     }
 
     const now = new Date();
-    if (now >= window.localStorage.getItem('expire_date')) {
+    if (now >= new Date(window.localStorage.getItem('expire_date'))) {
       window.localStorage.clear();
       this.start();
     }

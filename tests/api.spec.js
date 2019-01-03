@@ -58,6 +58,8 @@ describe('Spotify API Wrapper', () => {
         params: {
           q: 'Mother Mother',
           type: 'artist',
+          offset: 0,
+          limit: 20,
         },
       });
 

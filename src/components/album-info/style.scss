@@ -1,0 +1,80 @@
+.album-info {
+  text-align: center;
+  
+  .album-title {
+    font-size: 2em;
+    margin-top: 25px;
+    font-weight: bold;
+    line-height: 32px;
+    margin-bottom: 15px;
+  }
+
+  svg.album-image {
+    fill: #ccc4;
+  }
+  
+  .album-info {
+    text-align: center;
+    color: #777;
+  }
+
+  .album-counter {
+    margin-top: 5px;
+    margin-left: 5px;
+    background-color: #ccc;
+    padding: 3px 5px;
+    border-radius: 14%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-flex;
+    justify-content: space-between;
+
+    svg {
+      margin-right: 5px;
+      fill: #fff;
+    }
+  }
+}
+
+.track-container {
+  display: flex;
+  flex-direction: column;
+  margin: 12px;
+  padding: 20px;
+  &:empty {
+    text-align: center;
+    margin: 12px 10px 19px;
+    justify-content: center;
+    &::before {
+      content: 'Select an Album and the tracks will be shown here';
+      color: #ddd
+    }
+  }
+
+  .music {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 5px;
+    color: #777;
+    transition: .25s all ease-out;
+    cursor: pointer;
+
+    .music-number {
+      flex-grow: 1;
+      font-weight: bold;
+    }    
+    .music-title {
+      flex-grow: 50;
+    }
+    &:hover {
+      background: #f5f5f5;
+      color: #222;
+    }
+    &.playing {
+      background-color: #00d1b2 !important;
+      color: #fff;
+    }
+  }
+}
+
