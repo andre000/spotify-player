@@ -4,6 +4,7 @@
   "description": "Small player project for an assingment on a TDD course",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint . --fix",
     "build": "webpack -p --env.NODE_ENV=production",
     "watch": "webpack-dev-server --env.NODE_ENV=local --hot --open-page ./index.html",
     "test": "jest --coverage",
